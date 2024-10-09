@@ -32,6 +32,9 @@ export class User extends Model {
     @Column({ type: DataType.TEXT, allowNull: false ,unique:true})
     email: string;
 
+    @Column({ type: DataType.TEXT, allowNull: false})
+    password: string;
+
     @Column({ 
         type: DataType.ENUM, 
         values: [UserRoles.user, UserRoles.admin], 

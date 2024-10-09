@@ -6,12 +6,13 @@ import { appConfig, botConfig, dbConfig, jwtConfig } from 'config';
 import { CheckAuthGuard, CheckRoleGuard } from 'guards';
 import { APP_GUARD } from '@nestjs/core';
 import { JwtModule } from '@nestjs/jwt';
-import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
+import { ThrottlerModule } from '@nestjs/throttler';
 import { TelegrafModule } from 'nestjs-telegraf';
 import { session } from 'telegraf';
 import { Category, CategoryModule, FileModule, Reciep, ReciepModule, User, UserModule } from 'modules';
 import { AuthModule } from 'modules/auth';
 import { BotModule } from 'bot/bot.module';
+import { Rating, RatingModule } from 'modules/rating';
 
 @Module({
   imports: [
@@ -46,7 +47,7 @@ import { BotModule } from 'bot/bot.module';
             username: config.get('database.user'),
             password: config.get('database.password'),
             database: config.get('database.dbName'),
-            models: [Category, Reciep, User],
+            models: [Category, Reciep, User, Rating],
             synchronize: true,
             // sync: {force: true},
             logging: console.log,
@@ -70,6 +71,7 @@ import { BotModule } from 'bot/bot.module';
     ReciepModule,
     FileModule,
     UserModule,
+    RatingModule,
     AuthModule,
   ],
   providers: [

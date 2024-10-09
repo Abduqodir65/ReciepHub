@@ -28,6 +28,7 @@ export class UserService {
             age: payload.age,
             gender: payload.gender,
             email: payload.email,
+            password:payload.password,
             role: payload.role,
             image
         })

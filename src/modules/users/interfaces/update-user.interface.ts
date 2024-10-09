@@ -4,6 +4,7 @@ export declare interface UpdateUserRequest {
     age ?: number;
     gender ?: "male" | "female";
     email ?: string;
+    password:string;
     role ?: "customer" | "admin";
     image ?: string;
 }

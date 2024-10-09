@@ -7,19 +7,19 @@ export class BotService {
     constructor(@InjectBot() private bot: Telegraf<Context>) {}
 
     @Start()
-    async onStart(ctx:Context) {
+    async onStart(ctx: Context) {
       try {
-        ctx.reply('Assalomu alekum bratim', {
+        await ctx.reply('Assalomu alekum bratim', {
           reply_markup: {
             keyboard: [
-              [{ text : `Ro'yxatdan o'tish`}]
+              [{ text: `Ro'yxatdan o'tish` }]
             ],
             resize_keyboard: true
           }
-        })
+        });
       } catch (error) {
-        console.log(`Error on start: ${error}`)
-        ctx.reply('Something went wrong')
+        console.log(`Error on start: ${error}`);
+        ctx.reply('Something went wrong'); 
       }
     }
 

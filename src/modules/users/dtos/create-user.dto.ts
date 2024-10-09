@@ -24,6 +24,10 @@ export class CreateUserDto implements Omit<CreateUserRequest, "image"> {
 
     @IsString()
     @IsNotEmpty()
+    password: string;
+
+    @IsString()
+    @IsNotEmpty()
     role: "customer" | "admin";
 
     image:any
