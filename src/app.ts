@@ -3,11 +3,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { appConfig, dbConfig, jwtConfig } from './config';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { JwtModule } from '@nestjs/jwt';
-import { User } from 'modules/users/models';
-import { UserModule } from 'modules/users';
-import { FileModule } from 'modules';
-import { Category, CategoryModule } from 'modules/category';
-import { Reciep, ReciepModule } from 'modules/reciep';
+import { Category, CategoryModule, FileModule, Reciep, ReciepModule, User, UserModule } from 'modules';
 
 
 @Module({
