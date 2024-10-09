@@ -1,10 +1,12 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { appConfig, dbConfig, jwtConfig } from './config';
+import { appConfig, dbConfig, jwtConfig, multerConfig } from './config';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { JwtModule } from '@nestjs/jwt';
 import { Category, CategoryModule, FileModule, Reciep, ReciepModule, User, UserModule } from 'modules';
 import { ServeStaticModule } from '@nestjs/serve-static';
+import { TelegrafModule } from 'nestjs-telegraf';
+import { BotModule } from 'client';
 
 
 @Module({
@@ -48,10 +50,14 @@ import { ServeStaticModule } from '@nestjs/serve-static';
         }
       },
     }),
+    TelegrafModule.forRoot({
+      token:"7927180591:AAEvYKVXVEJBCcFl-n7lbcVasiM0q65XLds"
+    }),
     UserModule,
     CategoryModule,
     ReciepModule,
-    FileModule
+    FileModule,
+    BotModule
   ],
   // providers: [{
   //   useClass: CheckAuthGuard,

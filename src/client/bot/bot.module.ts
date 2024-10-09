@@ -7,4 +7,4 @@ import { Category } from "modules";
     imports: [SequelizeModule.forFeature([Category])],
     providers: [BotService],
 })
-export class BotModule {}
+export class BotModule {}   
