@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { RequestInterface } from './check-auth.guard';
 
 @Injectable()
-export class CheckRolesGuard implements CanActivate {
+export class CheckRoleGuard implements CanActivate {
     constructor(private reflector: Reflector) { }
 
     canActivate(
