@@ -4,6 +4,7 @@ import { appConfig, dbConfig, jwtConfig } from './config';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { JwtModule } from '@nestjs/jwt';
 import { Category, CategoryModule, FileModule, Reciep, ReciepModule, User, UserModule } from 'modules';
+import { ServeStaticModule } from '@nestjs/serve-static';
 
 
 @Module({
@@ -12,6 +13,7 @@ import { Category, CategoryModule, FileModule, Reciep, ReciepModule, User, UserM
       isGlobal: true,
       load: [appConfig, dbConfig,jwtConfig],
     }),
+
     JwtModule.register({
       secret: 'my secret',
       global: true,
@@ -19,6 +21,10 @@ import { Category, CategoryModule, FileModule, Reciep, ReciepModule, User, UserM
         expiresIn: 60 * 15
       }
     }),
+    ServeStaticModule.forRoot({
+      serveRoot: '/uploads',
+      rootPath: './uploads',
+    }),,
     SequelizeModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],

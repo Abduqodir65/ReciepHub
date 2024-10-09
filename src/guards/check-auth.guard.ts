@@ -7,7 +7,7 @@ import { Observable } from "rxjs";
 import { Protected } from "decorators";
 
 export declare interface RequestInterface extends Request {
-    userId: string | undefined,
+    userId: number | undefined,
     role: string | undefined
 }
 

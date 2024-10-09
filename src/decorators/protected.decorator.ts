@@ -1,3 +1,3 @@
 import { Reflector } from "@nestjs/core";
 
-export const Protected = Reflector.createDecorator<string[]>();
+export const Protected = Reflector.createDecorator<boolean>();
