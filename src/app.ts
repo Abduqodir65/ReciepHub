@@ -6,7 +6,7 @@ import { JwtModule } from '@nestjs/jwt';
 import { Category, CategoryModule, FileModule, Reciep, ReciepModule, User, UserModule } from 'modules';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { TelegrafModule } from 'nestjs-telegraf';
-import { BotModule } from 'client';
+import { BotModule } from 'bot/bot.module';
 
 
 @Module({
