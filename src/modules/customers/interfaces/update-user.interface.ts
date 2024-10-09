@@ -1,4 +1,4 @@
-export declare interface UpdateCustomerRequest {
+export declare interface UpdateUserRequest {
     name ?: string;
     username ?: string;
     age ?: number;

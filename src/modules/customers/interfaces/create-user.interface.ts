@@ -1,4 +1,4 @@
-export declare interface CreateCustomerRequest {
+export declare interface CreateUserRequest {
     name: string;
     username: string;
     age: number;

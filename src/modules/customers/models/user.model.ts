@@ -1,20 +1,18 @@
 import { Column, DataType, Model, Table } from 'sequelize-typescript';
 
-export enum CustomerRoles {
+export enum UserRoles {
     user = "customer",
     admin = "admin"
 }
 
-export enum CustomerGen {
+export enum UserGen {
     male = "male",
     female = "female"
 }
 
 
-
-
-@Table({ timestamps: true, tableName: 'customers' })
-export class Customer extends Model {
+@Table({ timestamps: true, tableName: 'users' })
+export class User extends Model {
     @Column({ allowNull: false, type: DataType.STRING })
     name: string;
 
@@ -24,14 +22,14 @@ export class Customer extends Model {
     @Column({ type: DataType.INTEGER, allowNull: false })
     age: number;
 
-    @Column({ type: DataType.ENUM,values: [CustomerGen.male, CustomerGen.female], allowNull:false,defaultValue:CustomerGen})
+    @Column({ type: DataType.ENUM,values: [UserGen.male, UserGen.female], allowNull:false,defaultValue:UserGen})
     gender: string;
 
     @Column({ type: DataType.TEXT, allowNull: false })
     email: string;
 
-    @Column({ type: DataType.ENUM,values: [CustomerRoles.user, CustomerRoles.admin], allowNull:false,defaultValue:CustomerRoles})
-    role: CustomerRoles;
+    @Column({ type: DataType.ENUM,values: [UserRoles.user, UserRoles.admin], allowNull:false,defaultValue:UserRoles})
+    role: UserRoles;
     
     @Column({ type: DataType.STRING, allowNull: false })
     image: string;
