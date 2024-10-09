@@ -6,6 +6,7 @@ import { JwtModule } from '@nestjs/jwt';
 import { User } from 'modules/users/models';
 import { UserModule } from 'modules/users';
 import { FileModule } from 'modules';
+import { Category, CategoryModule } from 'modules/category';
 
 
 @Module({
@@ -33,7 +34,7 @@ import { FileModule } from 'modules';
             username: config.get('database.user'),
             password: config.get('database.password'),
             database: config.get('database.dbName'),
-            models: [User],
+            models: [User,Category],
             synchronize: true,
             // sync: { force: true },
             logging: console.log,
@@ -45,6 +46,7 @@ import { FileModule } from 'modules';
       },
     }),
     UserModule,
+    CategoryModule,
     FileModule
   ],
   // providers: [{
