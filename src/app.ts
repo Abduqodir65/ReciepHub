@@ -3,6 +3,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { appConfig, dbConfig, jwtConfig } from './config';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { JwtModule } from '@nestjs/jwt';
+import { User } from 'modules/customers/models';
+import { UserModule } from 'modules/customers';
 
 
 @Module({
@@ -30,7 +32,7 @@ import { JwtModule } from '@nestjs/jwt';
             username: config.get('database.user'),
             password: config.get('database.password'),
             database: config.get('database.dbName'),
-            models: [],
+            models: [User],
             synchronize: true,
             // sync: { force: true },
             logging: console.log,
@@ -41,6 +43,7 @@ import { JwtModule } from '@nestjs/jwt';
         }
       },
     }),
+    UserModule
   ],
   // providers: [{
   //   useClass: CheckAuthGuard,
