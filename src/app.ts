@@ -5,6 +5,7 @@ import { SequelizeModule } from '@nestjs/sequelize';
 import { JwtModule } from '@nestjs/jwt';
 import { User } from 'modules/users/models';
 import { UserModule } from 'modules/users';
+import { FileModule } from 'modules';
 
 
 @Module({
@@ -43,7 +44,8 @@ import { UserModule } from 'modules/users';
         }
       },
     }),
-    UserModule
+    UserModule,
+    FileModule
   ],
   // providers: [{
   //   useClass: CheckAuthGuard,
