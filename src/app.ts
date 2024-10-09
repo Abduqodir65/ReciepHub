@@ -7,6 +7,7 @@ import { User } from 'modules/users/models';
 import { UserModule } from 'modules/users';
 import { FileModule } from 'modules';
 import { Category, CategoryModule } from 'modules/category';
+import { Reciep, ReciepModule } from 'modules/reciep';
 
 
 @Module({
@@ -34,7 +35,7 @@ import { Category, CategoryModule } from 'modules/category';
             username: config.get('database.user'),
             password: config.get('database.password'),
             database: config.get('database.dbName'),
-            models: [User,Category],
+            models: [User,Category,Reciep],
             synchronize: true,
             // sync: { force: true },
             logging: console.log,
@@ -47,6 +48,7 @@ import { Category, CategoryModule } from 'modules/category';
     }),
     UserModule,
     CategoryModule,
+    ReciepModule,
     FileModule
   ],
   // providers: [{
