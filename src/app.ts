@@ -3,8 +3,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { appConfig, dbConfig, jwtConfig } from './config';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { JwtModule } from '@nestjs/jwt';
-import { User } from 'modules/customers/models';
-import { UserModule } from 'modules/customers';
+import { User } from 'modules/users/models';
+import { UserModule } from 'modules/users';
 
 
 @Module({
