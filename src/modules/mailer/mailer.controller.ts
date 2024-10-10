@@ -9,9 +9,9 @@ export class MailerController {
   async sendMail(
     @Body('to') to: string,
     @Body('subject') subject: string,
-    @Body('html') html: string,
+    @Body('text') text: string,
   ) {
-    await this.mailerService.sendMail(to, subject, html);
+    await this.mailerService.sendMail(to, subject, text);
     return { message: 'Email sent successfully' };
   }
 }
