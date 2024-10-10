@@ -1,4 +1,4 @@
-import { Category } from 'modules/category';
+import { Meal } from 'modules/meal/models';
 import { Product } from 'modules/product';
 import { BelongsTo, Column, DataType, ForeignKey, Model, Table } from 'sequelize-typescript';
 
@@ -12,12 +12,12 @@ export class Reciep extends Model {
     @Column({ type: DataType.BIGINT, allowNull: false, onDelete: "CASCADE", onUpdate: "NO ACTION" })
     product_id: number;
 
-    @ForeignKey(() => Category)
+    @ForeignKey(() => Meal)
     @Column({ type: DataType.BIGINT, allowNull: false, onDelete: "CASCADE", onUpdate: "NO ACTION" })
-    category_id: number
+    meal_id: number
 
-    @BelongsTo(() => Category)
-    category: Category
+    @BelongsTo(() => Meal)
+    meal: Meal
 
     @BelongsTo(() => Product)
     product: Product
