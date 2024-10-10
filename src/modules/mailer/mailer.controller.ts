@@ -1,17 +1,17 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Controller, Post, Body } from '@nestjs/common';
 import { MailerService } from './mailer.service';
 
-@Controller('mail')
-export class MailController {
-  constructor(private readonly mailService: MailerService) {}
+@Controller('mailer')
+export class MailerController {
+  constructor(private readonly mailerService: MailerService) {}
 
-  @Post('contact')
-  async contactUs(
-    @Body('email') email: string,
+  @Post('send')
+  async sendMail(
+    @Body('to') to: string,
     @Body('subject') subject: string,
-    @Body('message') message: string,
+    @Body('html') html: string,
   ) {
-    const result = await this.mailService.sendContactUsMail(email, subject, message);
-    return result;
+    await this.mailerService.sendMail(to, subject, html);
+    return { message: 'Email sent successfully' };
   }
 }
