@@ -11,7 +11,6 @@ import { TelegrafModule } from 'nestjs-telegraf';
 import { session } from 'telegraf';
 import { Category, CategoryModule, FileModule, Reciep, ReciepModule, User, UserModule } from 'modules';
 import { AuthModule } from 'modules/auth';
-import { BotModule } from 'bot/bot.module';
 import { Rating, RatingModule } from 'modules/rating';
 
 @Module({
@@ -66,7 +65,6 @@ import { Rating, RatingModule } from 'modules/rating';
         middlewares: [session()]
       })
     }),
-    // BotModule,
     CategoryModule,
     ReciepModule,
     FileModule,
