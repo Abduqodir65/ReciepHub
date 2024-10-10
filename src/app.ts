@@ -66,7 +66,7 @@ import { Rating, RatingModule } from 'modules/rating';
         middlewares: [session()]
       })
     }),
-    BotModule,
+    // BotModule,
     CategoryModule,
     ReciepModule,
     FileModule,
