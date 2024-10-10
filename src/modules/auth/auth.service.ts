@@ -83,6 +83,10 @@ export class AuthService {
         };
     }
 
+    async resetPassword( ) { }
+
+    async forgotPassword( ) { }
+
     async logout() { }
 
     async refresh(payload: RefreshRequest): Promise<RefreshResponse> {

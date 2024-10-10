@@ -30,7 +30,12 @@
       "@decorators": [
         "./src/decorators"
       ],
-      "@bot": ["./src/bot"]
+      "@bot": [
+        "./src/bot"
+      ],
+      "@modules": [
+        "./src/modules"
+      ]
     }
   }
 }
