@@ -9,7 +9,7 @@ import { JwtModule } from '@nestjs/jwt';
 import { ThrottlerModule } from '@nestjs/throttler';
 import { TelegrafModule } from 'nestjs-telegraf';
 import { session } from 'telegraf';
-import { AuthModule, Category, CategoryModule, FileModule, MailerModule, Rating, RatingModule, Reciep, ReciepModule, User, UserModule } from 'modules';
+import { AuthModule, Category, CategoryModule, FileModule, MailerModule, OtpModule, Rating, RatingModule, Reciep, ReciepModule, User, UserModule } from 'modules';
 
 @Module({
   imports: [
@@ -70,6 +70,7 @@ import { AuthModule, Category, CategoryModule, FileModule, MailerModule, Rating,
     RatingModule,
     AuthModule,
     MailerModule,
+    OtpModule
   ],
   providers: [
     // {
