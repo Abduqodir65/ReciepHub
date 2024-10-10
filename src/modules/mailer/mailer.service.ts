@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import * as nodemailer from 'nodemailer';
 import { config } from 'dotenv';
 
-config(); 
+config();
 
 @Injectable()
 export class MailerService {
@@ -12,19 +12,19 @@ export class MailerService {
     this.transporter = nodemailer.createTransport({
       service: 'Gmail',
       auth: {
-        user: process.env.USER_EMAIL,      
-        pass: process.env.USER_EMAIL_PASS,  
+        user: process.env.USER_EMAIL,
+        pass: process.env.USER_EMAIL_PASS,
       },
     });
   }
 
-  async sendMail(to: string, subject: string, text:string): Promise<void> {
+  async sendMail(to: string, subject: string, text: string): Promise<void> {
     try {
       await this.transporter.sendMail({
-        from: process.env.USER_EMAIL, 
-        to,                          
-        subject,                      
-        text,                   
+        from: process.env.USER_EMAIL,
+        to,
+        subject,
+        text,
       });
       console.log('Email sent successfully');
     } catch (error) {

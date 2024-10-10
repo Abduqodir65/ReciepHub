@@ -1,2 +1,2 @@
-export * from './create-otp.dto'
-export * from './otp-validate.dto'
+export * from './create-otp.dto';
+export * from './otp-validate.dto';

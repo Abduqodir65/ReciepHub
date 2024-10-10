@@ -1,1 +1,1 @@
-export * from './reciep.model'
+export * from './reciep.model';

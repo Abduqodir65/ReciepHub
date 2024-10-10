@@ -1,4 +1,4 @@
 export declare interface CreateCategoryRequest {
-    name:string;
-    image:string
+  name: string;
+  image: string;
 }

@@ -1,9 +1,9 @@
 export declare interface RefreshRequest {
-    refreshToken: string
+  refreshToken: string;
 }
 
 export declare interface RefreshResponse {
-    accessToken: string;
-    refreshToken: string;
-    message: string;
+  accessToken: string;
+  refreshToken: string;
+  message: string;
 }

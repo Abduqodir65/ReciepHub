@@ -1,9 +1,9 @@
-import { IsNotEmpty, IsString } from "class-validator";
-import { CreateCategoryRequest } from "../interfaces";
+import { IsNotEmpty, IsString } from 'class-validator';
+import { CreateCategoryRequest } from '../interfaces';
 
-export class UpdateCategoryDto implements Omit<CreateCategoryRequest, "image"> {
-    @IsString()
-    name: string
+export class UpdateCategoryDto implements Omit<CreateCategoryRequest, 'image'> {
+  @IsString()
+  name: string;
 
-    image:any
+  image: any;
 }

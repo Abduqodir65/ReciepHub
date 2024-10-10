@@ -12,12 +12,11 @@ async function bootstrap() {
   const configService = app.get(ConfigService);
 
   app.enableCors({
-    origin: "*",
-    methods: ["GET", "PUT", "PATCH", "POST", "DELETE"]
-  })
+    origin: '*',
+    methods: ['GET', 'PUT', 'PATCH', 'POST', 'DELETE'],
+  });
 
-  app.use(compression())
-
+  app.use(compression());
 
   app.useGlobalPipes(
     new ValidationPipe({
@@ -44,7 +43,6 @@ async function bootstrap() {
   SwaggerModule.setup('api', app, document);
 
   app.use(morgan('tiny'));
-
 
   await app.listen(configService.get<number>('appConfig.port'), () => {
     console.log(`Listening on ${configService.get<number>('appConfig.port')}`);

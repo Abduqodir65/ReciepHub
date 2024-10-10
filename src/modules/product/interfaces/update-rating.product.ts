@@ -1,4 +1,4 @@
 export declare interface UpdateProductRequest {
-    name ?: string
-    image ?: any
+  name?: string;
+  image?: any;
 }

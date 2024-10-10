@@ -1,4 +1,4 @@
 export interface OtpData {
-    otp: string;        
-    expiresAt: Date;    
+  otp: string;
+  expiresAt: Date;
 }

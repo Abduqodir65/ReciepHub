@@ -1,35 +1,45 @@
-import { Injectable, NotFoundException } from "@nestjs/common";
-import { InjectModel } from "@nestjs/sequelize";
-import { Product } from "./models";
-import { FileService } from "modules/file";
-import { CreateProductDto, UpdateProductDto } from "./dtos";
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { InjectModel } from '@nestjs/sequelize';
+import { Product } from './models';
+import { FileService } from '../file/file.service';
+import { CreateProductDto, UpdateProductDto } from './dtos';
 
 @Injectable()
 export class ProductService {
-    constructor(@InjectModel(Product) private productModel: typeof Product, private readonly fileService: FileService) { }
+    constructor(
+        @InjectModel(Product) private productModel: typeof Product,
+        private readonly fileService: FileService,
+    ) { }
 
     async getAllProducts(): Promise<Product[]> {
-        return await this.productModel.findAll()
+        return await this.productModel.findAll();
     }
 
     async getProductById(id: number): Promise<Product> {
         return await this.productModel.findOne({
-            where: { id }
+            where: { id },
         });
     }
 
-    async createProduct(payload: CreateProductDto, file: Express.Multer.File): Promise<{ message: string; new_product: Product }> {
-        const image = await this.fileService.uploadFile(file)
+    async createProduct(
+        payload: CreateProductDto,
+        file: Express.Multer.File,
+    ): Promise<{ message: string; new_product: Product }> {
+        const image = await this.fileService.uploadFile(file);
 
         const new_product = await this.productModel.create({
             name: payload.name,
-            image
+            image,
         });
 
-        return { message: 'Product created successfully', new_product }
+        return { message: 'Product created successfully', new_product };
     }
 
-    async updateProduct(id: number, payload: UpdateProductDto,file?: Express.Multer.File ): Promise<{ message: string; updatedProduct: Product }> {
+    async updateProduct(
+        id: number,
+        payload: UpdateProductDto,
+        file?: Express.Multer.File,
+    ): Promise<{ message: string; updatedProduct: Product }> {
         const product = await this.productModel.findOne({ where: { id } });
         if (!product) {
             throw new NotFoundException(`Product with id ${id} not found`);
@@ -43,24 +53,24 @@ export class ProductService {
         await this.productModel.update(
             {
                 ...payload,
-                image 
+                image,
             },
-            { where: { id } }
+            { where: { id } },
         );
         const updatedProduct = await this.productModel.findOne({ where: { id } });
         return {
-            message: "Product updated successfully",
+            message: 'Product updated successfully',
             updatedProduct,
         };
     }
     async deleteProduct(id: number): Promise<{ message: string }> {
-        const foundedProduct = await this.productModel.findByPk(id)
+        const foundedProduct = await this.productModel.findByPk(id);
 
-        await this.fileService.deleteFile(foundedProduct.image)
-        foundedProduct.destroy()
+        await this.fileService.deleteFile(foundedProduct.image);
+        foundedProduct.destroy();
 
         return {
-            message: "User deleted successfully"
-        }
+            message: 'User deleted successfully',
+        };
     }
 }

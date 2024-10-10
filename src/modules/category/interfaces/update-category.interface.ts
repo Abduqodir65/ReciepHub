@@ -1,4 +1,4 @@
 export declare interface UpdateCategoryRequest {
-    name ?:string;
-    image ?:string
+  name?: string;
+  image?: string;
 }

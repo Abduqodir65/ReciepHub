@@ -1,30 +1,35 @@
-import { IsEmail, IsNotEmpty, IsNumber, IsPhoneNumber, IsString ,IsInt} from "class-validator";
-import { RegisterRequest } from "../interfaces";
+import {
+  IsEmail,
+  IsNotEmpty,
+  IsNumber,
+  IsPhoneNumber,
+  IsString,
+  IsInt,
+} from 'class-validator';
+import { RegisterRequest } from '../interfaces';
 
 export class RegisterDto implements RegisterRequest {
-    
-    @IsString()
-    @IsNotEmpty()
-    name:string;
+  @IsString()
+  @IsNotEmpty()
+  name: string;
 
-    @IsString()
-    @IsNotEmpty()
-    username:string;
+  @IsString()
+  @IsNotEmpty()
+  username: string;
 
-    @IsInt()
-    @IsNotEmpty()
-    age:number;
+  @IsInt()
+  @IsNotEmpty()
+  age: number;
 
-    @IsString()
-    @IsNotEmpty()
-    gender: string;
+  @IsString()
+  @IsNotEmpty()
+  gender: string;
 
-    @IsEmail()
-    @IsNotEmpty()
-    email: string;
+  @IsEmail()
+  @IsNotEmpty()
+  email: string;
 
-    @IsString()
-    @IsNotEmpty()
-    password: string;
-
+  @IsString()
+  @IsNotEmpty()
+  password: string;
 }

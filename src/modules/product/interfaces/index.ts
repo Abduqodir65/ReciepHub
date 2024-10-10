@@ -1,2 +1,2 @@
-export * from './create-product.interface'
-export * from './update-rating.product'
+export * from './create-product.interface';
+export * from './update-rating.product';

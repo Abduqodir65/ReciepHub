@@ -1,23 +1,22 @@
-import { IsInt,  IsNotEmpty, IsNumber, IsString } from "class-validator";
-import { CreateUserRequest } from "../interfaces";
+import { IsInt, IsNotEmpty, IsNumber, IsString } from 'class-validator';
+import { CreateUserRequest } from '../interfaces';
 
-export class CreateUserDto implements Omit<CreateUserRequest, "image"> {
-    @IsString()
-    @IsNotEmpty()
-    name: string;
+export class CreateUserDto implements Omit<CreateUserRequest, 'image'> {
+  @IsString()
+  @IsNotEmpty()
+  name: string;
 
-    @IsString()
-    @IsNotEmpty()
-    username: string;
+  @IsString()
+  @IsNotEmpty()
+  username: string;
 
-    @IsString()
-    @IsNotEmpty()
-    email: string;
+  @IsString()
+  @IsNotEmpty()
+  email: string;
 
-    @IsString()
-    @IsNotEmpty()
-    password: string;
+  @IsString()
+  @IsNotEmpty()
+  password: string;
 
-    image:any
-
+  image: any;
 }

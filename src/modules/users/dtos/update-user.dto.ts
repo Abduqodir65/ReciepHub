@@ -1,22 +1,21 @@
-import { IsInt, IsString } from "class-validator";
-import { CreateUserRequest } from "../interfaces";
+import { IsInt, IsString } from 'class-validator';
+import { CreateUserRequest } from '../interfaces';
 
-export class UpdateUserDto implements Omit<CreateUserRequest, "image"> {
-    @IsString()
-    name: string;
+export class UpdateUserDto implements Omit<CreateUserRequest, 'image'> {
+  @IsString()
+  name: string;
 
-    @IsString()
-    username: string;
+  @IsString()
+  username: string;
 
-    @IsInt()
-    age: number;
+  @IsInt()
+  age: number;
 
-    @IsString()
-    email: string;
+  @IsString()
+  email: string;
 
-    @IsString()
-    password: string;
-    
-    image:any
+  @IsString()
+  password: string;
 
+  image: any;
 }

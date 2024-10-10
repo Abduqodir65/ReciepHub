@@ -9,14 +9,31 @@ import { JwtModule } from '@nestjs/jwt';
 import { ThrottlerModule } from '@nestjs/throttler';
 import { TelegrafModule } from 'nestjs-telegraf';
 import { session } from 'telegraf';
-import { AuthModule, Category, CategoryModule, FileModule, MailerModule, Meal, MealModule, OtpModule, Product, ProductModule, Reciep, ReciepModule, User, UserModule } from 'modules';
+import {
+  AuthModule,
+  Category,
+  CategoryModule,
+  FileModule,
+  MailerModule,
+  Meal,
+  MealModule,
+  OtpModule,
+  Product,
+  ProductModule,
+  Reciep,
+  ReciepModule,
+  User,
+  UserModule,
+} from 'modules';
 
 @Module({
   imports: [
-    ThrottlerModule.forRoot([{
-      ttl: 30000,
-      limit: 300,
-    }]),
+    ThrottlerModule.forRoot([
+      {
+        ttl: 30000,
+        limit: 300,
+      },
+    ]),
     ConfigModule.forRoot({
       isGlobal: true,
       load: [appConfig, dbConfig, jwtConfig, botConfig],
@@ -46,7 +63,7 @@ import { AuthModule, Category, CategoryModule, FileModule, MailerModule, Meal, M
             database: config.get('database.dbName'),
             models: [Category, Reciep, User, Product, Meal],
             synchronize: true,
-            // sync: {force: true },
+            sync: { force: true },
             logging: console.log,
             autoLoadModels: true,
           };
@@ -59,9 +76,9 @@ import { AuthModule, Category, CategoryModule, FileModule, MailerModule, Meal, M
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: (config: ConfigService) => ({
-        token: config.get<string>("bot.token"),
-        middlewares: [session()]
-      })
+        token: config.get<string>('bot.token'),
+        middlewares: [session()],
+      }),
     }),
     CategoryModule,
     ReciepModule,
@@ -71,13 +88,13 @@ import { AuthModule, Category, CategoryModule, FileModule, MailerModule, Meal, M
     AuthModule,
     MailerModule,
     OtpModule,
-    MealModule
+    MealModule,
   ],
   providers: [
     // {
     //   provide: APP_GUARD,
     //   useClass: ThrottlerGuard
-    // },    
+    // },
     // {
     //   useClass: CheckAuthGuard,
     //   provide: APP_GUARD,

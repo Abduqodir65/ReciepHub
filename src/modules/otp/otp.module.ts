@@ -3,7 +3,7 @@ import { OtpController } from './otp.controller';
 import { OtpService } from './otp.service';
 
 @Module({
-    controllers: [OtpController],
-    providers: [OtpService],
+  controllers: [OtpController],
+  providers: [OtpService],
 })
-export class OtpModule { }
+export class OtpModule {}
