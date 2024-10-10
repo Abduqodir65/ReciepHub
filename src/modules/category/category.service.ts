@@ -23,7 +23,6 @@ export class CategoryService {
 
         const new_category = await this.categoryModel.create({
             name: payload.name,
-            description: payload.description,
             image
         });
 

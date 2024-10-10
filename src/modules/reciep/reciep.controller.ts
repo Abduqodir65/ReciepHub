@@ -1,6 +1,5 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post, UploadedFile, UseInterceptors } from "@nestjs/common";
+import { Body, Controller, Delete, Get, Param, Patch, Post } from "@nestjs/common";
 import { ReciepService } from "./reciep.service";
-import { FileInterceptor } from "@nestjs/platform-express";
 import { CreateReciepDto, UpdateReciepDto } from "./dtos";
 import { Reciep } from "./models";
 
@@ -23,9 +22,8 @@ export class ReciepController {
     }
 
     @Post('/add')
-    @UseInterceptors(FileInterceptor('image')) 
-    async createReciep(@Body() createReciepPayload: CreateReciepDto, @UploadedFile() image: Express.Multer.File): Promise<{ message:string,new_reciep:CreateReciepDto}> {
-        await this.#_service.createReciep(createReciepPayload, image)
+    async createReciep(@Body() createReciepPayload: CreateReciepDto): Promise<{ message:string,new_reciep:CreateReciepDto}> {
+        await this.#_service.createReciep(createReciepPayload)
 
         return {
             message: 'Reciep created successfully',

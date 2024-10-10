@@ -9,7 +9,7 @@ import { JwtModule } from '@nestjs/jwt';
 import { ThrottlerModule } from '@nestjs/throttler';
 import { TelegrafModule } from 'nestjs-telegraf';
 import { session } from 'telegraf';
-import { AuthModule, Category, CategoryModule, FileModule, MailerModule, OtpModule, Rating, RatingModule, Reciep, ReciepModule, User, UserModule } from 'modules';
+import { AuthModule, Category, CategoryModule, FileModule, MailerModule, OtpModule, Product, ProductModule, Reciep, ReciepModule, User, UserModule } from 'modules';
 
 @Module({
   imports: [
@@ -44,7 +44,7 @@ import { AuthModule, Category, CategoryModule, FileModule, MailerModule, OtpModu
             username: config.get('database.user'),
             password: config.get('database.password'),
             database: config.get('database.dbName'),
-            models: [Category, Reciep, User, Rating],
+            models: [Category, Reciep, User, Product],
             synchronize: true,
             // sync: {force: true },
             logging: console.log,
@@ -67,7 +67,7 @@ import { AuthModule, Category, CategoryModule, FileModule, MailerModule, OtpModu
     ReciepModule,
     FileModule,
     UserModule,
-    RatingModule,
+    ProductModule,
     AuthModule,
     MailerModule,
     OtpModule

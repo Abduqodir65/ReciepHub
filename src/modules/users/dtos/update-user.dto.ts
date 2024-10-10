@@ -12,16 +12,10 @@ export class UpdateUserDto implements Omit<CreateUserRequest, "image"> {
     age: number;
 
     @IsString()
-    gender: "male" | "female";
-
-    @IsString()
     email: string;
 
     @IsString()
     password: string;
-
-    @IsString()
-    role: "customer" | "admin";
     
     image:any
 

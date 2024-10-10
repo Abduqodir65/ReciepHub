@@ -5,8 +5,5 @@ export class UpdateCategoryDto implements Omit<CreateCategoryRequest, "image"> {
     @IsString()
     name: string
 
-    @IsString()
-    description: string
-
     image:any
 }

@@ -10,14 +10,6 @@ export class CreateUserDto implements Omit<CreateUserRequest, "image"> {
     @IsNotEmpty()
     username: string;
 
-    @IsNumber()
-    @IsNotEmpty()
-    age: number;
-
-    @IsString()
-    @IsNotEmpty()
-    gender: "male" | "female";
-
     @IsString()
     @IsNotEmpty()
     email: string;
@@ -25,10 +17,6 @@ export class CreateUserDto implements Omit<CreateUserRequest, "image"> {
     @IsString()
     @IsNotEmpty()
     password: string;
-
-    @IsString()
-    @IsNotEmpty()
-    role: "customer" | "admin";
 
     image:any
 

@@ -1,8 +1,8 @@
 import { Column, DataType, Model, Table } from 'sequelize-typescript';
 
 
-@Table({ timestamps: true, tableName: 'category' })
-export class Category extends Model {
+@Table({ timestamps: true, tableName: 'product' })
+export class Product extends Model {
     @Column({ allowNull: false, type: DataType.STRING })
     name: string;
 

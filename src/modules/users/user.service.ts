@@ -25,11 +25,8 @@ export class UserService {
         const new_user = await this.userModel.create({
             name: payload.name,
             username: payload.username,
-            age: payload.age,
-            gender: payload.gender,
             email: payload.email,
             password:payload.password,
-            role: payload.role,
             image
         })
 

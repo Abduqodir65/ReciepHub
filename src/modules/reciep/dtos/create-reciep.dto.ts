@@ -2,26 +2,16 @@ import { IsNotEmpty, IsNumberString, IsString } from "class-validator";
 import { CreateReciepRequest } from "../interfaces";
 
 export class CreateReciepDto implements Omit<CreateReciepRequest, "image"> {
+    @IsNotEmpty()
     @IsString()
+    quantity: string;
+    
+    @IsNumberString()
     @IsNotEmpty()
-    name: string
-
-    @IsString()
-    @IsNotEmpty()
-    description: string
-
-    @IsNotEmpty()
-    image: string;
-
-    @IsNotEmpty()
-    video: string;
+    product_id: number;
 
     @IsNumberString()
     @IsNotEmpty()
-    user_id: number;
-
-    @IsNumberString()
-    @IsNotEmpty()
-    category_id: number;
+    meal_id: number;
 
 }

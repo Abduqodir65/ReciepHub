@@ -6,9 +6,5 @@ export class CreateCategoryDto implements Omit<CreateCategoryRequest, "image"> {
     @IsNotEmpty()
     name: string
 
-    @IsString()
-    @IsNotEmpty()
-    description: string
-
     image:any
 }

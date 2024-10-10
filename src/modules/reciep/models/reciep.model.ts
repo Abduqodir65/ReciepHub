@@ -1,25 +1,16 @@
 import { Category } from 'modules/category';
-import { User } from 'modules/users';
+import { Product } from 'modules/product';
 import { BelongsTo, Column, DataType, ForeignKey, Model, Table } from 'sequelize-typescript';
 
 
 @Table({ timestamps: true, tableName: 'reciep' })
 export class Reciep extends Model {
-    @Column({ allowNull: false, type: DataType.STRING, unique: true })
-    name: string;
-
     @Column({ allowNull: false, type: DataType.STRING })
-    description: string;
+    quantity: string;
 
-    @Column({ type: DataType.STRING, allowNull: false })
-    image: string;
-
-    @Column({ type: DataType.STRING, allowNull: false })
-    video: string;
-
-    @ForeignKey(() => User)
+    @ForeignKey(() => Product)
     @Column({ type: DataType.BIGINT, allowNull: false, onDelete: "CASCADE", onUpdate: "NO ACTION" })
-    user_id: number;
+    product_id: number;
 
     @ForeignKey(() => Category)
     @Column({ type: DataType.BIGINT, allowNull: false, onDelete: "CASCADE", onUpdate: "NO ACTION" })
@@ -28,6 +19,7 @@ export class Reciep extends Model {
     @BelongsTo(() => Category)
     category: Category
 
-    @BelongsTo(() => User)
-    user: User
+    @BelongsTo(() => Product)
+    product: Product
+
 }
