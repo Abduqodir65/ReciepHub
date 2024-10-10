@@ -1,4 +1,4 @@
-import { IsInt,  IsNotEmpty, IsString } from "class-validator";
+import { IsInt,  IsNotEmpty, IsNumber, IsString } from "class-validator";
 import { CreateUserRequest } from "../interfaces";
 
 export class CreateUserDto implements Omit<CreateUserRequest, "image"> {
@@ -10,7 +10,7 @@ export class CreateUserDto implements Omit<CreateUserRequest, "image"> {
     @IsNotEmpty()
     username: string;
 
-    @IsInt()
+    @IsNumber()
     @IsNotEmpty()
     age: number;
 

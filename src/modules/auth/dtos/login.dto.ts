@@ -1,12 +1,12 @@
 import { LoginRequest } from "../interfaces";
-import { IsEmail, IsNotEmpty, IsPhoneNumber } from "class-validator";
+import { IsEmail, IsNotEmpty, IsPhoneNumber, IsString } from "class-validator";
 
 export class LoginDto implements LoginRequest {
     @IsEmail()
     @IsNotEmpty()
-    username: string;
-
-    @IsEmail()
-    @IsNotEmpty()
     email: string;
+
+    @IsString()
+    @IsNotEmpty()
+    password: string;
 }

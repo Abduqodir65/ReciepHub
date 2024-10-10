@@ -18,7 +18,7 @@ export class User extends Model {
     @Column({ allowNull: false, type: DataType.STRING ,unique:true})
     username: string;
 
-    @Column({ type: DataType.INTEGER, allowNull: false })
+    @Column({ type: DataType.NUMBER, allowNull: false })
     age: number;
 
     @Column({ 

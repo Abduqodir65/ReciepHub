@@ -4,6 +4,7 @@ export declare interface RegisterRequest {
     age:number;
     gender:string;
     email: string;
+    password:string;
 }
 
 export declare interface RegisterResponse {

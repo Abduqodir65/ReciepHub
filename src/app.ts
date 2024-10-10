@@ -9,9 +9,7 @@ import { JwtModule } from '@nestjs/jwt';
 import { ThrottlerModule } from '@nestjs/throttler';
 import { TelegrafModule } from 'nestjs-telegraf';
 import { session } from 'telegraf';
-import { Category, CategoryModule, FileModule, Reciep, ReciepModule, User, UserModule } from 'modules';
-import { AuthModule } from 'modules/auth';
-import { Rating, RatingModule } from 'modules/rating';
+import { AuthModule, Category, CategoryModule, FileModule, MailModule, Rating, RatingModule, Reciep, ReciepModule, User, UserModule } from 'modules';
 
 @Module({
   imports: [
@@ -48,7 +46,7 @@ import { Rating, RatingModule } from 'modules/rating';
             database: config.get('database.dbName'),
             models: [Category, Reciep, User, Rating],
             synchronize: true,
-            // sync: {force: true},
+            // sync: {force: true },
             logging: console.log,
             autoLoadModels: true,
           };
@@ -71,20 +69,21 @@ import { Rating, RatingModule } from 'modules/rating';
     UserModule,
     RatingModule,
     AuthModule,
+    MailModule,
   ],
   providers: [
     // {
     //   provide: APP_GUARD,
     //   useClass: ThrottlerGuard
     // },    
-    {
-      useClass: CheckAuthGuard,
-      provide: APP_GUARD,
-    },
-    {
-      useClass: CheckRoleGuard,
-      provide: APP_GUARD,
-    },
+    // {
+    //   useClass: CheckAuthGuard,
+    //   provide: APP_GUARD,
+    // },
+    // {
+    //   useClass: CheckRoleGuard,
+    //   provide: APP_GUARD,
+    // },
   ],
 })
 export class AppModule {}

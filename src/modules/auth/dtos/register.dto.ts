@@ -23,4 +23,8 @@ export class RegisterDto implements RegisterRequest {
     @IsNotEmpty()
     email: string;
 
+    @IsString()
+    @IsNotEmpty()
+    password: string;
+
 }

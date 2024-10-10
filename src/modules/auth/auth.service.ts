@@ -15,7 +15,7 @@ export class AuthService {
 
     async login(payload: LoginRequest): Promise<LoginResponse> {
         const foundedUser = await this.usermodel.findOne({
-            where: { username: payload.username,email: payload.email },
+            where: { email: payload.email, password: payload.password},
         });
 
         if (!foundedUser) {
@@ -52,7 +52,7 @@ export class AuthService {
     }
 
     async register(payload: RegisterRequest): Promise<RegisterResponse> {
-        const newUser = await this.usermodel.create({ name: payload.name, username: payload.username,gender:payload.gender,email: payload.email })
+        const newUser = await this.usermodel.create({ name: payload.name, username: payload.username,gender:payload.gender,email: payload.email,password:payload.password })
 
         const accessToken = await this.jwt.signAsync(
             {
