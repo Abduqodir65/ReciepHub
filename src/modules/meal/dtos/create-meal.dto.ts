@@ -1,28 +1,28 @@
-import { IsNotEmpty, IsNumberString, IsString } from 'class-validator';
-import { CreateMealRequest } from '../interfaces';
+import { IsNotEmpty, IsNumber, IsNumberString, IsString } from "class-validator";
+import { CreateMealRequest } from "../interfaces";
 
-export class CreateMealDto implements Omit<CreateMealRequest, 'image'> {
-  @IsNotEmpty()
-  @IsString()
-  name: string;
+export class CreateMealDto implements Omit<CreateMealRequest, "image" | "video"> {
+    @IsString()
+    @IsNotEmpty()
+    name: string;
 
-  @IsNotEmpty()
-  @IsString()
-  description: string;
+    @IsString()
+    @IsNotEmpty()
+    description: string;
 
-  @IsNotEmpty()
-  @IsString()
-  image: string;
+    @IsString()
+    @IsNotEmpty()
+    image: string;
 
-  @IsNotEmpty()
-  @IsString()
-  video: string;
+    @IsString()
+    @IsNotEmpty()
+    video: string;
 
-  @IsNumberString()
-  @IsNotEmpty()
-  category_id: number;
+    @IsNumber()
+    @IsNotEmpty()
+    category_id:number
 
-  @IsNumberString()
-  @IsNotEmpty()
-  user_id: number;
+    @IsNumberString()
+    @IsNotEmpty()
+    user_id:number
 }

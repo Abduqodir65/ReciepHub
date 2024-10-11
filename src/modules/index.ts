@@ -6,4 +6,3 @@ export * from './auth';
 export * from './mailer';
 export * from './product';
 export * from './otp';
-export * from './meal';

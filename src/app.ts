@@ -15,8 +15,6 @@ import {
   CategoryModule,
   FileModule,
   MailerModule,
-  Meal,
-  MealModule,
   OtpModule,
   Product,
   ProductModule,
@@ -25,6 +23,7 @@ import {
   User,
   UserModule,
 } from 'modules';
+import { Meal, MealModule } from 'modules/meal';
 
 @Module({
   imports: [
@@ -61,9 +60,9 @@ import {
             username: config.get('database.user'),
             password: config.get('database.password'),
             database: config.get('database.dbName'),
-            models: [Category, Reciep, User, Product,Meal],
+            models: [Category, Reciep, User, Product, Meal],
             synchronize: true,
-            // sync: { force: true },
+            sync: { force: true },
             // logging: console.log,
             autoLoadModels: true,
           };
@@ -81,14 +80,14 @@ import {
       }),
     }),
     CategoryModule,
+    MealModule,
     ReciepModule,
-    FileModule,
     UserModule,
     ProductModule,
     AuthModule,
     MailerModule,
     OtpModule,
-    MealModule,
+    FileModule,
   ],
   providers: [
     // {
