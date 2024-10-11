@@ -61,10 +61,10 @@ import {
             username: config.get('database.user'),
             password: config.get('database.password'),
             database: config.get('database.dbName'),
-            models: [Category, Reciep, User, Product, Meal],
+            models: [Category, Reciep, User, Product,Meal],
             synchronize: true,
-            sync: { force: true },
-            logging: console.log,
+            // sync: { force: true },
+            // logging: console.log,
             autoLoadModels: true,
           };
         } catch (error) {
