@@ -36,7 +36,7 @@ export class ProductController {
   @UseInterceptors(FileInterceptor('image'))
   async createProduct(
     @Body() createProductPayload: CreateProductDto,
-    image: Express.Multer.File,
+    @UploadedFile() image: Express.Multer.File,
   ): Promise<{ message: string; new_product: CreateProductDto }> {
     await this.#_service.createProduct(createProductPayload, image);
 

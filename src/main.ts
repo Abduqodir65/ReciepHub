@@ -2,13 +2,19 @@ import { BadRequestException, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { ConfigService } from '@nestjs/config';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { NestExpressApplication } from '@nestjs/platform-express';
+import { NestFastifyApplication, FastifyAdapter } from '@nestjs/platform-fastify';
 import * as morgan from 'morgan';
 import * as compression from 'compression';
 import { AppModule } from './app';
 import { ExceptionHandlerFilter } from './filters';
+import { join } from 'path';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create<NestFastifyApplication>(
+    AppModule,
+    new FastifyAdapter(),
+  );
   const configService = app.get(ConfigService);
 
   app.enableCors({
@@ -42,7 +48,19 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
 
+
   app.use(morgan('tiny'));
+
+  app.useStaticAssets({
+    root: join(__dirname, '..', 'public'),
+    prefix: '/public/',
+  });
+  app.setViewEngine({
+    engine: {
+      ejs: require('ejs'),
+    },
+    templates: join(__dirname, '..', 'views'),
+  });
 
   await app.listen(configService.get<number>('appConfig.port'), () => {
     console.log(`Listening on ${configService.get<number>('appConfig.port')}`);
