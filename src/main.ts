@@ -3,7 +3,6 @@ import { NestFactory } from '@nestjs/core';
 import { ConfigService } from '@nestjs/config';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { NestExpressApplication } from '@nestjs/platform-express';
-import { NestFastifyApplication, FastifyAdapter } from '@nestjs/platform-fastify';
 import * as morgan from 'morgan';
 import * as compression from 'compression';
 import { AppModule } from './app';
@@ -11,10 +10,10 @@ import { ExceptionHandlerFilter } from './filters';
 import { join } from 'path';
 
 async function bootstrap() {
-  const app = await NestFactory.create<NestFastifyApplication>(
+  const app = await NestFactory.create<NestExpressApplication>(
     AppModule,
-    new FastifyAdapter(),
   );
+
   const configService = app.get(ConfigService);
 
   app.enableCors({
@@ -51,16 +50,10 @@ async function bootstrap() {
 
   app.use(morgan('tiny'));
 
-  app.useStaticAssets({
-    root: join(__dirname, '..', 'public'),
-    prefix: '/public/',
-  });
-  app.setViewEngine({
-    engine: {
-      ejs: require('ejs'),
-    },
-    templates: join(__dirname, '..', 'views'),
-  });
+  app.useStaticAssets(join(__dirname,  'public'));
+  app.setBaseViewsDir(join(__dirname, 'views'));
+  app.setViewEngine('hbs');
+
 
   await app.listen(configService.get<number>('appConfig.port'), () => {
     console.log(`Listening on ${configService.get<number>('appConfig.port')}`);

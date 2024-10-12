@@ -24,6 +24,7 @@ import {
   UserModule,
 } from 'modules';
 import { Meal, MealModule } from 'modules/meal';
+import { AppController } from 'app.controller';
 
 @Module({
   imports: [
@@ -89,6 +90,7 @@ import { Meal, MealModule } from 'modules/meal';
     OtpModule,
     FileModule,
   ],
+  controllers: [AppController],
   providers: [
     // {
     //   provide: APP_GUARD,
