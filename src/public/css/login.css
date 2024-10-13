@@ -9,8 +9,8 @@
 	--button-radius: 0.7rem;
 
 	/* SIZES */
-	--max-width: 758px;
-	--max-height: 420px;
+	--max-width: 800px;
+	--max-height: 550px;
 
 	font-size: 16px;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
@@ -196,6 +196,63 @@ body {
 	margin: 0.5rem 0;
 	width: 100%;
 }
+
+.profile-picture-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem; /* Tugma va rasm orasidagi masofa */
+}
+
+/* Image preview container */
+.image-preview {
+    width: 120px; /* Dumaloq rasmning o'lchami kichikroq bo'ladi */
+    height: 120px;
+    border-radius: 50%;
+    background-color: #f3f3f3;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.image-preview__image {
+    display: none;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Rasmni to'liq sig'dirish */
+    border-radius: 50%;
+}
+
+.image-preview__default-text {
+    color: #cccccc;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+/* Custom file upload button */
+.custom-file-upload {
+    padding: 0.5rem 1.5rem;
+    background-color: var(--blue);
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.custom-file-upload:hover {
+    background-color: var(--lightblue);
+}
+
+/* Hidden file input */
+#fileInput {
+    display: none;
+}
+
 
 @keyframes show {
 	0%,
