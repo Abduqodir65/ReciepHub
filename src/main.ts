@@ -51,9 +51,8 @@ async function bootstrap() {
   app.use(morgan('tiny'));
 
   app.useStaticAssets(join(__dirname,  'public'));
-  app.setBaseViewsDir(join(__dirname, 'views'));
-  app.setViewEngine('hbs');
-
+  app.setBaseViewsDir(join(__dirname,  'views'));
+  app.setViewEngine('ejs');
 
   await app.listen(configService.get<number>('appConfig.port'), () => {
     console.log(`Listening on ${configService.get<number>('appConfig.port')}`);
