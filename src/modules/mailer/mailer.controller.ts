@@ -7,11 +7,12 @@ export class MailerController {
 
   @Post('send')
   async sendMail(
-    @Body('to') to: string,
+    @Body('name') name: string,
+    @Body('email') email: string,
     @Body('subject') subject: string,
-    @Body('text') text: string,
+    @Body('message') message: string,
   ) {
-    await this.mailerService.sendMail(to, subject, text);
+    await this.mailerService.sendMail(name,email,subject ,message);
     return { message: 'Email sent successfully' };
   }
 }

@@ -18,13 +18,14 @@ export class MailerService {
     });
   }
 
-  async sendMail(to: string, subject: string, text: string): Promise<void> {
+  async sendMail(name:string,email: string, subject: string, message: string): Promise<void> {
     try {
       await this.transporter.sendMail({
         from: process.env.USER_EMAIL,
-        to,
+        name,
+        email,
         subject,
-        text,
+        message,
       });
       console.log('Email sent successfully');
     } catch (error) {
