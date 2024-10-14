@@ -10,19 +10,13 @@ export class CreateMealDto implements Omit<CreateMealRequest, "image" | "video">
     @IsNotEmpty()
     description: string;
 
-    @IsString()
-    @IsNotEmpty()
-    image: string;
+    image: any;
 
-    @IsString()
-    @IsNotEmpty()
-    video: string;
+    video: any;
 
-    @IsNumber()
     @IsNotEmpty()
     category_id:number
 
-    @IsNumberString()
     @IsNotEmpty()
     user_id:number
 }

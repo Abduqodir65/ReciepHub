@@ -9,36 +9,36 @@ export class AppController {
     }
 
     @Get('/about')
-    @Render('about')
+    @Render('about.ejs')
     about() {
         return { info: 'This is the about page.' };
     }
 
     @Get('/contact')
-    @Render('contact') 
+    @Render('contact.ejs') 
     contact() {
         return { contactInfo: 'You can contact us at example@example.com.' };
     }
 
     @Get('/elements')
-    @Render('elements')
+    @Render('elements.ejs')
     element() {
         return { info: 'this is the login page'}
     }
 
     @Get('/blogpost')
-    @Render('blogpost')
+    @Render('blogpost.ejs')
     blog_post() {
         return { info: 'this is the login page'}
     }
     @Get('/receipepost')
-    @Render('reciepepost')
+    @Render('reciepepost.ejs')
     resieppost() {
         return { info: 'this is the login page'}    
     }
 
     @Get('/login')
-    @Render('login')
+    @Render('login.ejs')
     login() {
         return { info: 'this is the login page'}
     }

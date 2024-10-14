@@ -8,7 +8,7 @@ export class Meal extends Model {
     name: string
 
     @Column({ allowNull: false, type: DataType.STRING })
-    descriptiom: string
+    description: string
 
     @Column({ allowNull: false, type: DataType.STRING })
     image: string

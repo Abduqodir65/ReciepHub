@@ -63,7 +63,7 @@ import { AppController } from 'app.controller';
             database: config.get('database.dbName'),
             models: [Category, Reciep, User, Product, Meal],
             synchronize: true,
-            sync: { force: true },
+            // sync: { force: true },
             // logging: console.log,
             autoLoadModels: true,
           };

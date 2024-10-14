@@ -11,11 +11,9 @@ export class UpdateMealDto implements Omit<CreateMealRequest, "image" | "video">
     @IsString()
     image: string;
 
-    @IsString()
-    video: string;
+    video: any;
 
-    @IsNumber()
-    category_id:number
+    category_id:any
 
     @IsNumberString()
     user_id:number
