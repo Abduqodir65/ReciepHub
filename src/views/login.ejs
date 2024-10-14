@@ -12,7 +12,7 @@
     <div class="container right-panel-active">
         <!-- Sign Up -->
         <div class="container__form container--signup">
-            <form action="#" class="form" id="form1" enctype="multipart/form-data">
+            <form action="/auth/register" method="post" class="form" id="form1" enctype="multipart/form-data">
                 <h2 class="form__title"><b>Sign Up</b></h2>
                 <input type="text" placeholder="Name" class="input" required />
                 <input type="text" placeholder="Username" class="input" required />
@@ -22,21 +22,21 @@
                 <!-- File upload for profile picture -->
                 <div class="profile-picture-container">
                     <label for="fileInput" class="custom-file-upload">Choose a Profile Picture</label>
-                    <div class="image-preview" id="imagePreview">
+                    <d  iv class="image-preview" id="imagePreview">
                         <img src="" alt="Profile Picture" class="image-preview__image" />
                         <span class="image-preview__default-text">No Image</span>
-                    </div>
+                    </d>
                     <input type="file" id="fileInput" class="input" accept="image/*" />
                 </div>
 
 
-                <button class="btn">Sign Up</button>
+                <button type="submit" class="btn">Sign Up</button>
             </form>
         </div>
 
         <!-- Sign In -->
         <div class="container__form container--signin">
-            <form action="#" class="form" id="form2">
+            <form action="/auth/login" class="form" id="form2">
                 <h2 class="form__title"><b>Sign In</b></h2>
                 <input type="email" placeholder="Email" class="input" required />
                 <input type="password" placeholder="Password" class="input" required />

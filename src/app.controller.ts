@@ -26,15 +26,15 @@ export class AppController {
         return { info: 'this is the login page'}
     }
 
-    @Get('/blog-post')
+    @Get('/blogpost')
     @Render('blog-post')
     blog_post() {
         return { info: 'this is the login page'}
     }
-    @Get('/receipe-post')
+    @Get('/receipepost')
     @Render('reciepe-post')
     resiep_post() {
-        return { info: 'this is the login page'}
+        return { info: 'this is the login page'}    
     }
 
     @Get('/login')

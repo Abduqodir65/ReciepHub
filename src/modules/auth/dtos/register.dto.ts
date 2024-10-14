@@ -17,14 +17,6 @@ export class RegisterDto implements RegisterRequest {
   @IsNotEmpty()
   username: string;
 
-  @IsInt()
-  @IsNotEmpty()
-  age: number;
-
-  @IsString()
-  @IsNotEmpty()
-  gender: string;
-
   @IsEmail()
   @IsNotEmpty()
   email: string;
@@ -32,4 +24,6 @@ export class RegisterDto implements RegisterRequest {
   @IsString()
   @IsNotEmpty()
   password: string;
+
+  image: any;
 }
