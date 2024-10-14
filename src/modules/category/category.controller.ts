@@ -13,7 +13,9 @@ import { CategoryService } from './category.service';
 import { Category } from './models';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { CreateCategoryDto, UpdateCategoryDto } from './dtos';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Category')
 @Controller('category')
 export class CategoryController {
   #_service: CategoryService;

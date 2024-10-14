@@ -13,7 +13,9 @@ import { ProductService } from './product.service';
 import { CreateProductDto, UpdateProductDto } from './dtos';
 import { Product } from './models';
 import { FileInterceptor } from '@nestjs/platform-express';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Product')
 @Controller('product')
 export class ProductController {
   #_service: ProductService;

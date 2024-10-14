@@ -13,7 +13,9 @@ import { UserService } from './user.service';
 import { User } from './models';
 import { CreateUserDto, UpdateUserDto } from './dtos';
 import { FileInterceptor } from '@nestjs/platform-express';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('User')
 @Controller('users')
 export class UserController {
   #_service: UserService;

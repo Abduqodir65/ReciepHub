@@ -14,22 +14,19 @@
         <div class="container__form container--signup">
             <form action="/auth/register" method="post" class="form" id="form1" enctype="multipart/form-data">
                 <h2 class="form__title"><b>Sign Up</b></h2>
-                <input type="text" placeholder="Name" class="input" required />
-                <input type="text" placeholder="Username" class="input" required />
-                <input type="email" placeholder="Email" class="input" required />
-                <input type="password" placeholder="Password" class="input" required />
+                <input type="text" placeholder="Name" name="name" class="input" required />
+                <input type="text" placeholder="Username" name="username" class="input" required />
+                <input type="email" placeholder="Email" name="email" class="input" required />
+                <input type="password" placeholder="Password" name="password" class="input" required />
 
-                <!-- File upload for profile picture -->
                 <div class="profile-picture-container">
                     <label for="fileInput" class="custom-file-upload">Choose a Profile Picture</label>
-                    <d  iv class="image-preview" id="imagePreview">
+                    <div class="image-preview" id="imagePreview">
                         <img src="" alt="Profile Picture" class="image-preview__image" />
                         <span class="image-preview__default-text">No Image</span>
-                    </d>
+                    </div>
                     <input type="file" id="fileInput" class="input" accept="image/*" />
                 </div>
-
-
                 <button type="submit" class="btn">Sign Up</button>
             </form>
         </div>
@@ -41,7 +38,7 @@
                 <input type="email" placeholder="Email" class="input" required />
                 <input type="password" placeholder="Password" class="input" required />
                 <a href="#" class="link">Forgot your password?</a>
-                <button class="btn">Sign In</button>
+                <button type="submit" class="btn">Sign In</button>
             </form>
         </div>
 

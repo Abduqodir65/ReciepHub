@@ -10,7 +10,9 @@ import {
 import { ReciepService } from './reciep.service';
 import { CreateReciepDto, UpdateReciepDto } from './dtos';
 import { Reciep } from './models';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Reciepe')
 @Controller('reciep')
 export class ReciepController {
   #_service: ReciepService;

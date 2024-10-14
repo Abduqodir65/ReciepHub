@@ -27,13 +27,13 @@ export class AppController {
     }
 
     @Get('/blogpost')
-    @Render('blog-post')
+    @Render('blogpost')
     blog_post() {
         return { info: 'this is the login page'}
     }
     @Get('/receipepost')
-    @Render('reciepe-post')
-    resiep_post() {
+    @Render('reciepepost')
+    resieppost() {
         return { info: 'this is the login page'}    
     }
 

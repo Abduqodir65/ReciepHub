@@ -3,7 +3,9 @@ import { MealService } from "./meal.service";
 import { Meal } from "./models";
 import { FileInterceptor } from "@nestjs/platform-express";
 import { CreateMealDto } from "./dtos";
+import { ApiTags } from "@nestjs/swagger";
 
+@ApiTags('Meal')
 @Controller('meal')
 export class MealController {
     constructor(private readonly service: MealService) {}
