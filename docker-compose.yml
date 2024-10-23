@@ -1,0 +1,20 @@
+version: '3'
+services:
+  nestjs-app:
+    build:
+      dockerfile:Dockerfile
+    ports:
+      -3000:3000
+    env_file:
+      -.env
+    dependens_on:
+      - postgres
+  
+  postgres:
+    image: postgres
+    environment:
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
+    ports:
+      - 5432:5432
